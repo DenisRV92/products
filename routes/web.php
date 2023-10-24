@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/products');
 });;
-Route::prefix('products')->middleware('auth')->group(function () {
+Route::prefix('products')->group(function () {
     // Здесь определите маршруты, на которые будут применены миддлвары 'auth' и 'admin'
     Route::get('/', [ProductController::class, 'index']);
     Route::post('/', [ProductController::class, 'store']);
@@ -32,4 +32,4 @@ Route::prefix('products')->middleware('auth')->group(function () {
 //    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';

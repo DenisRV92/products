@@ -3,9 +3,9 @@
     <form action="#" method="post">
         @csrf
         <label for="article">Артикул:</label>
-        <input class="form-input {{ (auth()->user()->role != 'admin' && $product->exists ) ? 'readonly-input' : '' }}" type="text"
+        <input class="form-input {{ (config('products.role') != 'admin' && $product->exists ) ? 'readonly-input' : '' }}" type="text"
                id="article" name="article" required value="{{ $product->article }}"
-               @if((auth()->user()->role != 'admin' && $product->exists)) readonly @endif>
+               @if(config('products.role') != 'admin' && $product->exists) readonly @endif>
 
         <label for="name">Название:</label>
         <input class="form-input" type="text" id="name" name="name" required value="{{$product->name}}"

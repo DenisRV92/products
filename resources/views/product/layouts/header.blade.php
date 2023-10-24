@@ -3,11 +3,11 @@
        ПРОДУКТЫ
    </div>
     <div class="header-user-name">
-        {{ auth()->user()->name }}
+        Тестов Человек Человекович
         <div class="dropdown-menu">
-            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+            <form id="logout-form" method="#">
                 @csrf
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+                <a href="#" onclick="event.preventDefault();">Log Out</a>
             </form>
         </div>
     </div>

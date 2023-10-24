@@ -15,10 +15,11 @@ COPY composer.lock ./
 
 RUN composer install --no-autoloader
 
-COPY ./_docker/app/product.env ./.env
+
 ADD ./_docker/app/workers/*.conf /etc/supervisor/conf.d/
 COPY ./_docker/app/supervisord.conf /etc/supervisord.conf
 COPY --chown=www-data:www-data . .
+
 
 EXPOSE 80
 

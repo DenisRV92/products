@@ -5,7 +5,7 @@ namespace App\Listeners;
 use App\Notifications\ProductCreatedNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\AnonymousNotifiable;
 
 class SendProductCreatedNotification
 {
@@ -22,7 +22,7 @@ class SendProductCreatedNotification
      */
     public function handle(object $event): void
     {
-        $user = Auth::user(); // Здесь вы можете определить, кто будет получать уведомление. В данном случае первый пользователь в базе данных
-        $user->notify(new ProductCreatedNotification($event->product));
+        $email = config('products.email');
+        (new AnonymousNotifiable)->route('mail', $email)->notify(new ProductCreatedNotification($event->product));
     }
 }
