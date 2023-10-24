@@ -19,7 +19,8 @@ services:
             context: .
             dockerfile: _docker/app/Dockerfile
         volumes:
-            - ./:/var/www
+            - ./public:/var/www/public
+            - ./config:/var/www/config
         depends_on:
             - db
         container_name: project_app
