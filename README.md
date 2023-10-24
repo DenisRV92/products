@@ -1,7 +1,3 @@
-1. Сделать docker-compose up -d
+1. Найти файл в корне проекта product.env и переименовать в .env
 
-2. Вход в приложение
-
-   --- для админа login - admin@test.com, password 123456
-
-   --- НЕ для админа login - user@test.com, password 123456
+2. Сделать docker-compose up -d
